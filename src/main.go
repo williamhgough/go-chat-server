@@ -17,7 +17,7 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
-// Define our message object
+// Message object
 type Message struct {
 	Email    string `json:"email"`
 	Username string `json:"username"`
@@ -29,7 +29,7 @@ func main() {
 	fs := http.FileServer(http.Dir("../public"))
 	http.Handle("/", fs)
 
-	// Configure websocket route
+	// Configure web socket route
 	http.HandleFunc("/ws", handleConnections)
 
 	// Start listening for incoming chat messages
